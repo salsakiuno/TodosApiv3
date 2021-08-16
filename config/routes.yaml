@@ -1,0 +1,8 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+user_creation:
+  path: /user
+  controller: App\Infrastructure\Controller\UserController::create
+  methods: POST
