@@ -2,8 +2,6 @@
 
 namespace App\Domain\Entity;
 
-use App\Repository\UserRepository;
-
 class User
 {
     private $id;
