@@ -2,12 +2,15 @@
 
 namespace App\Application\Response;
 
-class UserCreationResponse 
+class UserCreationResponse implements \JsonSerializable
 {
+    private $userId;
+    private $userName;
+
     public function __construct(int $userId, string $userName)
     {
         $this->userId = $userId;
-        $this->user_name = $userName;
+        $this->userName = $userName;
     }
 
     public function getUserId()
