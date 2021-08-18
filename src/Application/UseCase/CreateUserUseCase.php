@@ -24,7 +24,6 @@ class CreateUserUseCase{
         $userId = $this->userRepositoryInterface->findByEmail($request->getEmail());
         
         return new UserCreationResponse($userId->id, $request->getUserName());
-        return 'success';
     }
 
 }

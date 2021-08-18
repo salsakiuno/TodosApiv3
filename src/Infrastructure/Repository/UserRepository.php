@@ -19,9 +19,10 @@ class UserRepository implements UserRepositoryInterface
         $this->entityManager->persist($user);
         $this->entityManager->flush();
     }
-    public function findById(int $userId): ?User
+
+    public function findById(int $id): ?User
     {
-        return $this->entityManager->getRepository(User::class)->findOneBy(['id' => $userId]);
+        return $this->entityManager->getRepository(User::class)->findOneBy(['id' => $id]);
     }
 
     public function findByEmail(string $email): ?User
