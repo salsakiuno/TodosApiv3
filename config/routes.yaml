@@ -4,13 +4,13 @@
 
 user_creation:
   path: /user
-  controller: App\Infrastructure\Controller\UserController::create
+  controller: App\Infrastructure\Controller\UserCreationController::create
   methods: POST
 get_user:
   path: /user/{id}
-  controller: App\Infrastructure\Controller\UserController::get
+  controller: App\Infrastructure\Controller\GetUserController::get
   methods: GET
 update_user:
   path: /user/update/{id}
-  controller: App\Infrastructure\Controller\UserController::update
+  controller: App\Infrastructure\Controller\UpdateUserController::update
   methods: PUT

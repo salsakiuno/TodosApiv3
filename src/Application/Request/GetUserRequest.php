@@ -2,7 +2,7 @@
 
 namespace App\Application\Request;
 
-class GetUserInformationRequest
+class GetUserRequest
 {
     private $id;
 

@@ -2,7 +2,7 @@
 
 namespace App\Application\Response;
 
-class GetUserInformationResponse implements \JsonSerializable
+class GetUserResponse implements \JsonSerializable
 {
     private $userId;
     private $userName;
