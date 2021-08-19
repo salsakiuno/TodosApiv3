@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class GetUserController
 {
-    private $getUserInformationUseCase;
+    private $getUserUseCase;
 
     public function __construct(GetUserUseCase $getUserUseCase)
     {
@@ -17,9 +17,14 @@ class GetUserController
 
     public function get(Int $id)
     {
-        $getUserInformationRequest = new GetUserRequest($id);
+        $getUserRequest = new GetUserRequest($id);
 
-        return new JsonResponse($this->getUserUseCase->get($getUserInformationRequest));
+        return new JsonResponse($this->getUserUseCase->get($getUserRequest));
     }
 
+    public function getAll()
+    {
+        return new JsonResponse($this->getUserUseCase->getAll());
+    }
+    
 }

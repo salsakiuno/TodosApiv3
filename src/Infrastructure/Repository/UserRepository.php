@@ -14,6 +14,13 @@ class UserRepository implements UserRepositoryInterface
         $this->entityManager = $entityManager;
     }
 
+    public function delete(User $user): void
+    {
+        $this->entityManager->remove($user);
+        $this->entityManager->flush();
+
+    }
+
     public function save(User $user): void
     {
         $this->entityManager->persist($user);

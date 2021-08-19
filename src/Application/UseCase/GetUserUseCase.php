@@ -19,4 +19,10 @@ class GetUserUseCase{
         return new GetUserResponse($userInformation->id, $userInformation->user_name, $userInformation->email);
     }
 
+    public function getAll()
+    {
+        $userInformation = $this->userRepositoryInterface->findAll();
+         
+        return $userInformation;
+    }
 }

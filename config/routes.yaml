@@ -10,7 +10,15 @@ get_user:
   path: /user/{id}
   controller: App\Infrastructure\Controller\GetUserController::get
   methods: GET
+get_all_user:
+  path: /users
+  controller: App\Infrastructure\Controller\GetUserController::getAll
+  methods: GET
 update_user:
   path: /user/update/{id}
   controller: App\Infrastructure\Controller\UpdateUserController::update
   methods: PUT
+delete_user:
+  path: /user/delete/{id}
+  controller: App\Infrastructure\Controller\DeleteUserController::delete
+  methods: DELETE
