@@ -1,8 +1,8 @@
 <?php
-namespace App\Infrastructure\Controller;
+namespace App\User\Infrastructure\Controller;
 
-use App\Application\UseCase\CreateUserUseCase;
-use App\Application\Request\CreateUserRequest;
+use App\User\Application\UseCase\CreateUserUseCase;
+use App\User\Application\Request\CreateUserRequest;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 

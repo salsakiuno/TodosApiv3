@@ -1,10 +1,10 @@
 <?php 
 
-namespace App\Application\UseCase;
+namespace App\User\Application\UseCase;
 
-use App\Domain\Repository\UserRepositoryInterface;
-use App\Application\Request\GetUserRequest;
-use App\Application\Response\GetUserResponse;
+use App\User\Domain\Repository\UserRepositoryInterface;
+use App\User\Application\Request\GetUserRequest;
+use App\User\Application\Response\GetUserResponse;
 
 class GetUserUseCase{
     public function __construct(UserRepositoryInterface $userRepositoryInterface)

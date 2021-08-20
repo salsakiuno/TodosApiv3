@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Infrastructure\Controller;
+namespace App\User\Infrastructure\Controller;
 
-use App\Application\UseCase\DeleteUserUseCase;
-use App\Application\Request\DeleteUserRequest;
+use App\User\Application\UseCase\DeleteUserUseCase;
+use App\User\Application\Request\DeleteUserRequest;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 class DeleteUserController

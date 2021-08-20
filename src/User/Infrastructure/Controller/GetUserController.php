@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Infrastructure\Controller;
+namespace App\User\Infrastructure\Controller;
 
-use App\Application\UseCase\GetUserUseCase;
-use App\Application\Request\GetUserRequest;
+use App\User\Application\UseCase\GetUserUseCase;
+use App\User\Application\Request\GetUserRequest;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 class GetUserController

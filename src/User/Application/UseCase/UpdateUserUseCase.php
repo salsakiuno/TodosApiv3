@@ -1,11 +1,10 @@
 <?php 
 
-namespace App\Application\UseCase;
+namespace App\User\Application\UseCase;
 
-use App\Domain\Repository\UserRepositoryInterface;
-use App\Domain\Entity\User;
-use App\Application\Request\UpdateUserRequest;
-use App\Application\Response\UpdateUserResponse;
+use App\User\Domain\Repository\UserRepositoryInterface;
+use App\User\Application\Request\UpdateUserRequest;
+use App\User\Application\Response\UpdateUserResponse;
 
 class UpdateUserUseCase{
 

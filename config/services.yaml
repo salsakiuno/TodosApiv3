@@ -17,8 +17,8 @@ services:
         resource: '../src/*'
         exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
 
-    App\Infrastructure\Controller\:
-        resource: '../src/Infrastructure/Controller'
+    App\User\Infrastructure\Controller\:
+        resource: '../src/User/Infrastructure/Controller'
         tags: ['controller.service_arguments']
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

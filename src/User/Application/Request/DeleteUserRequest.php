@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Application\Request;
+namespace App\User\Application\Request;
 
 class DeleteUserRequest
 {

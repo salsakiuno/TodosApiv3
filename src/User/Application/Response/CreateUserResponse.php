@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Application\Response;
+namespace App\User\Application\Response;
 
 class CreateUserResponse implements \JsonSerializable
 {

@@ -13,5 +13,5 @@ doctrine:
             User:
                 is_bundle: false
                 type: xml
-                dir: '%kernel.project_dir%/src/Infrastructure/Entity'
-                prefix: 'App\Domain\Entity'
+                dir: '%kernel.project_dir%/src/User/Infrastructure/Entity'
+                prefix: 'App\User\Domain\Entity'

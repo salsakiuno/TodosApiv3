@@ -1,10 +1,10 @@
 <?php 
 
-namespace App\Application\UseCase;
+namespace App\User\Application\UseCase;
 
-use App\Domain\Repository\UserRepositoryInterface;
-use App\Application\Request\DeleteUserRequest;
-use App\Application\Response\DeleteUserResponse;
+use App\User\Domain\Repository\UserRepositoryInterface;
+use App\User\Application\Request\DeleteUserRequest;
+use App\User\Application\Response\DeleteUserResponse;
 
 class DeleteUserUseCase{
     public function __construct(UserRepositoryInterface $userRepositoryInterface)

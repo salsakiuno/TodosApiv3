@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Infrastructure\Repository;
+namespace App\User\Infrastructure\Repository;
 
-use App\Domain\Entity\User;
-use App\Domain\Repository\UserRepositoryInterface;
+use App\User\Domain\Entity\User;
+use App\User\Domain\Repository\UserRepositoryInterface;
 use Doctrine\ORM\EntityManagerInterface;
 
 class UserRepository implements UserRepositoryInterface

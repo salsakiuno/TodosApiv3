@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Infrastructure\Controller;
+namespace App\User\Infrastructure\Controller;
 
-use App\Application\UseCase\UpdateUserUseCase;
-use App\Application\Request\UpdateUserRequest;
+use App\User\Application\UseCase\UpdateUserUseCase;
+use App\User\Application\Request\UpdateUserRequest;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
