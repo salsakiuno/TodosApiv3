@@ -15,3 +15,8 @@ doctrine:
                 type: xml
                 dir: '%kernel.project_dir%/src/User/Infrastructure/Entity'
                 prefix: 'App\User\Domain\Entity'
+            Todo:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/src/Todo/Infrastructure/Entity'
+                prefix: 'App\Todo\Domain\Entity'
