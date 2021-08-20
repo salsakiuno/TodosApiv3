@@ -4,7 +4,8 @@ namespace App\Application\UseCase;
 
 use App\Domain\Repository\UserRepositoryInterface;
 use App\Domain\Entity\User;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use App\Application\Request\CreateUserRequest;
+use App\Application\Response\CreateUserResponse;
 
 class CreateUserUseCase{
     public function __construct(UserRepositoryInterface $userRepositoryInterface)
@@ -12,13 +13,17 @@ class CreateUserUseCase{
         $this->userRepositoryInterface = $userRepositoryInterface;
     }
 
-    public function create($request)
+    public function create(CreateUserRequest $request)
     {
-        $body = $request -> getContent();
-        $data = json_decode($body, true);
-        $user = new User($data['user_name'], $data['email']);
+        $user = new User(
+            $request->getUserName(),
+            $request->getEmail()
+        );
+
         $this->userRepositoryInterface->save($user);
-        return new JsonResponse('success: '.$data['user_name'].' '.$data['email']);
+        $userId = $this->userRepositoryInterface->findByEmail($request->getEmail());
+        
+        return new CreateUserResponse($userId->id, $request->getUserName());
     }
 
 }
