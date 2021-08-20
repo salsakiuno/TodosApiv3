@@ -4,7 +4,7 @@
 
 user_creation:
   path: /user
-  controller: App\Infrastructure\Controller\UserCreationController::create
+  controller: App\Infrastructure\Controller\CreateUserController::create
   methods: POST
 get_user:
   path: /user/{id}

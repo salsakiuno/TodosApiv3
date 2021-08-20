@@ -4,8 +4,8 @@ namespace App\Application\UseCase;
 
 use App\Domain\Repository\UserRepositoryInterface;
 use App\Domain\Entity\User;
-use App\Application\Request\UserCreationRequest;
-use App\Application\Response\UserCreationResponse;
+use App\Application\Request\CreateUserRequest;
+use App\Application\Response\CreateUserResponse;
 
 class CreateUserUseCase{
     public function __construct(UserRepositoryInterface $userRepositoryInterface)
@@ -13,7 +13,7 @@ class CreateUserUseCase{
         $this->userRepositoryInterface = $userRepositoryInterface;
     }
 
-    public function create(UserCreationRequest $request)
+    public function create(CreateUserRequest $request)
     {
         $user = new User(
             $request->getUserName(),
@@ -23,7 +23,7 @@ class CreateUserUseCase{
         $this->userRepositoryInterface->save($user);
         $userId = $this->userRepositoryInterface->findByEmail($request->getEmail());
         
-        return new UserCreationResponse($userId->id, $request->getUserName());
+        return new CreateUserResponse($userId->id, $request->getUserName());
     }
 
 }
