@@ -4,24 +4,24 @@ namespace App\User\Domain\Entity;
 
 class User
 {
-    public $user_name;
+    public $userName;
     public $email;
     public $id;
 
-    public function __construct($user_name, $email)
+    public function __construct($userName, $email)
     {
-        $this->user_name = $user_name;
+        $this->userName = $userName;
         $this->email = $email;
     }
 
     public function getUserName(): ?string
     {
-        return $this->user_name;
+        return $this->userName;
     }
 
-    public function setUserName(string $user_name): self
+    public function setUserName(string $userName): self
     {
-        $this->user_name = $user_name;
+        $this->userName = $userName;
 
         return $this;
     }

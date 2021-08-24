@@ -20,7 +20,7 @@ class UpdateUserController
     {
         $updateUserRequest = new UpdateUserRequest(
             $id, 
-            $request->get('user_name'),
+            $request->get('userName'),
             $request->get('email')
         );
 

@@ -18,7 +18,7 @@ class DeleteUserUseCase{
         $user = $this->userRepositoryInterface->findById($request->getId());
         $this->userRepositoryInterface->delete($user);
         
-        return new DeleteUserResponse($user->user_name, $user->email);
+        return new DeleteUserResponse($user->userName, $user->email);
     }
 }
 

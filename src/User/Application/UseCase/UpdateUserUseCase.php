@@ -25,7 +25,7 @@ class UpdateUserUseCase{
         $userUpdated = $this->userRepositoryInterface->findById($request->getId());
         return new UpdateUserResponse(
             $userUpdated->id,
-            $userUpdated->user_name,
+            $userUpdated->userName,
             $userUpdated->email);
     }
 

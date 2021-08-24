@@ -7,7 +7,8 @@ use App\User\Domain\Entity\User;
 use App\User\Application\Request\CreateUserRequest;
 use App\User\Application\Response\CreateUserResponse;
 
-class CreateUserUseCase{
+class CreateUserUseCase
+{
     public function __construct(UserRepositoryInterface $userRepositoryInterface)
     {
         $this->userRepositoryInterface = $userRepositoryInterface;

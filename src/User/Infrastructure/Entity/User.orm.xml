@@ -6,7 +6,7 @@
         <id name="id" type="integer" column="id">
             <generator strategy="AUTO"/>
         </id>
-        <field name="user_name" type="string" length="50"/>
-        <field name="email" length="100"/>
+        <field name="userName" column="user_name" type="string" length="50"/>
+        <field name="email" column="email" length="100"/>
     </entity>
 </doctrine-mapping>

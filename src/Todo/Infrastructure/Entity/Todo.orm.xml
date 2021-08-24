@@ -6,12 +6,13 @@
         <id name="id" type="integer" column="id">
             <generator strategy="AUTO"/>
         </id>
-        <field name="user_id" type="integer"/>
-        <field name="title" type="string" length="50"/>
-        <field name="description" type="string" length="100" nullable="true"/>
-        <field name="done" type="boolean">
+        <field name="userId" column="user_id" type="integer"/>
+        <field name="title" column="title" type="string" length="50"/>
+        <field name="description" column="description" type="string" length="100" nullable="true"/>
+        <field name="done" column="done" type="boolean">
         <options>
             <option name="default">0</option>
+        </options>
         </field>
     </entity>
 </doctrine-mapping>

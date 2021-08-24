@@ -22,3 +22,7 @@ delete_user:
   path: /user/delete/{id}
   controller: App\User\Infrastructure\Controller\DeleteUserController::delete
   methods: DELETE
+todo_creation:
+  path: /todo
+  controller: App\Todo\Infrastructure\Controller\CreateTodoController::create
+  methods: POST
