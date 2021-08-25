@@ -41,5 +41,4 @@ class UserRepository implements UserRepositoryInterface
     {
         return $this->entityManager->getRepository(User::class)->findAll();
     }
-
 }

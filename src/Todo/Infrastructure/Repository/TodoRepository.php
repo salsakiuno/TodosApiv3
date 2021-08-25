@@ -38,4 +38,21 @@ class TodoRepository implements TodoRepositoryInterface
         return $this->entityManager->getRepository(Todo::class)->findAll();
     }
 
+    public function findAllByUserId(int $id): array
+    {
+        return $this->queryToFindAll($id);
+    }
+
+    private function queryToFindAll(int $id): array
+    {
+        $result = $this->entityManager->createQueryBuilder()
+            ->from(Todo::class, 'todos')
+            ->select('todos','todos.title', 'todos.description', 'todos.done')
+            ->where('todos.userId = :id')
+            ->setParameter('id', $id)
+            ->getQuery()->getArrayResult();
+
+        return $result;
+    }
+
 }

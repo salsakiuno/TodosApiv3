@@ -18,12 +18,12 @@ class CreateTodoController
         $this->createTodoUseCase = $createTodoUseCase;
     }
 
-    public function create(Request $request)
+    public function create(Request $request, Int $id )
     {
         $createTodoRequest = new CreateTodoRequest(
             $request->get('title'), 
             $request->get('description'),
-            $request->get('userId')
+            $id
         );
         
         return new JsonResponse($this->createTodoUseCase->create($createTodoRequest));
