@@ -3,7 +3,6 @@
 namespace App\User\Application\UseCase;
 
 use App\User\Domain\Repository\UserRepositoryInterface;
-use App\User\Application\Request\GetUserRequest;
 use App\User\Application\Response\GetUserResponse;
 
 class GetUserUseCase{
@@ -12,9 +11,9 @@ class GetUserUseCase{
         $this->userRepositoryInterface = $userRepositoryInterface;
     }
 
-    public function get(GetUserRequest $request)
+    public function get(Int $id)
     {
-        $userInformation = $this->userRepositoryInterface->findById($request->getId());
+        $userInformation = $this->userRepositoryInterface->findById($id);
          
         return new GetUserResponse($userInformation->id, $userInformation->userName, $userInformation->email);
     }

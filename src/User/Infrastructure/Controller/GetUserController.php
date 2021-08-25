@@ -3,7 +3,6 @@
 namespace App\User\Infrastructure\Controller;
 
 use App\User\Application\UseCase\GetUserUseCase;
-use App\User\Application\Request\GetUserRequest;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 class GetUserController
@@ -17,9 +16,8 @@ class GetUserController
 
     public function get(Int $id)
     {
-        $getUserRequest = new GetUserRequest($id);
 
-        return new JsonResponse($this->getUserUseCase->get($getUserRequest));
+        return new JsonResponse($this->getUserUseCase->get($id));
     }
 
     public function getAll()

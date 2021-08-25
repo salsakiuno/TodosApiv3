@@ -26,3 +26,7 @@ todo_creation:
   path: user/{id}/todo
   controller: App\Todo\Infrastructure\Controller\CreateTodoController::create
   methods: POST
+get_user_todos:
+  path: user/{id}/todos
+  controller: App\Todo\Infrastructure\Controller\GetAllUserTodosController::getAll
+  methods: GET
