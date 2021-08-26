@@ -10,5 +10,7 @@ interface TodoRepositoryInterface
     public function delete(Todo $todo): void;
     public function findById(int $id): ?Todo;
     public function findAllByUserId(int $id): array;
+    public function findAllDoneByUserId(int $id): array;
+    public function findAllNotDoneByUserId(int $id): array;
     public function findAll(): ?array;
 }

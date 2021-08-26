@@ -30,3 +30,11 @@ get_user_todos:
   path: user/{id}/todos
   controller: App\Todo\Infrastructure\Controller\GetAllUserTodosController::getAll
   methods: GET
+get_done_user_todos:
+  path: user/{id}/todos/done
+  controller: App\Todo\Infrastructure\Controller\GetAllDoneUserTodosController::getAll
+  methods: GET
+get_not_done_user_todos:
+  path: user/{id}/todos/notdone
+  controller: App\Todo\Infrastructure\Controller\GetAllNotDoneUserTodosController::getAll
+  methods: GET

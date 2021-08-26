@@ -40,16 +40,37 @@ class TodoRepository implements TodoRepositoryInterface
 
     public function findAllByUserId(int $id): array
     {
-        return $this->queryToFindAll($id);
-    }
-
-    private function queryToFindAll(int $id): array
-    {
         $result = $this->entityManager->createQueryBuilder()
             ->from(Todo::class, 'todos')
             ->select('todos','todos.title', 'todos.description', 'todos.done')
             ->where('todos.userId = :id')
             ->setParameter('id', $id)
+            ->getQuery()->getArrayResult();
+
+        return $result;
+    }
+
+    public function findAllDoneByUserId(int $id): array
+    {
+        $result = $this->entityManager->createQueryBuilder()
+            ->from(Todo::class, 'todos')
+            ->select('todos','todos.title', 'todos.description', 'todos.done')
+            ->andwhere('todos.userId = :id AND todos.done = :done')
+            ->setParameter('id', $id)
+            ->setParameter('done', true)
+            ->getQuery()->getArrayResult();
+
+        return $result;
+    }
+
+    public function findAllNotDoneByUserId(int $id): array
+    {
+        $result = $this->entityManager->createQueryBuilder()
+            ->from(Todo::class, 'todos')
+            ->select('todos','todos.title', 'todos.description', 'todos.done')
+            ->andwhere('todos.userId = :id AND todos.done = :done')
+            ->setParameter('id', $id)
+            ->setParameter('done', false)
             ->getQuery()->getArrayResult();
 
         return $result;

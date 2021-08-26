@@ -3,7 +3,6 @@
 namespace App\Todo\Infrastructure\Controller;
 
 use App\Todo\Application\UseCase\GetAllUserTodosUseCase;
-use App\Todo\Application\Request\GetAllUserTodosRequest;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 class GetAllUserTodosController

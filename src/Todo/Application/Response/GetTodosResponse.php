@@ -2,7 +2,7 @@
 
 namespace App\Todo\Application\Response;
 
-class GetAllUserTodosResponse implements \JsonSerializable
+class GetTodosResponse implements \JsonSerializable
 {
     private $todos;
 
@@ -19,7 +19,7 @@ class GetAllUserTodosResponse implements \JsonSerializable
     public function jsonSerialize(): array
     {
         return [
-            'todos' => $this->getTodos()
+            'data' => $this->getTodos()
         ];
     }
 }
