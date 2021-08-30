@@ -2,6 +2,8 @@
 
 namespace App\Todo\Domain\Entity;
 
+use phpDocumentor\Reflection\Types\Boolean;
+
 class Todo
 {
     public $title;
@@ -16,6 +18,32 @@ class Todo
         $this->description = $description;
         $this->userId = $userId;
         $this->done = false;
+    }
+
+    public function getTitle(): self
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function setDone(Boolean $done): self
+    {
+        $this->done = $done;
+
+        return $this;
     }
 
 }

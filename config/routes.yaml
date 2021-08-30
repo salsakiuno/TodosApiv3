@@ -38,3 +38,11 @@ get_not_done_user_todos:
   path: user/{id}/todos/notdone
   controller: App\Todo\Infrastructure\Controller\GetAllNotDoneUserTodosController::getAll
   methods: GET
+get_todo:
+  path: user/{userId}/todo/{todoId}
+  controller: App\Todo\Infrastructure\Controller\GetTodoCrontroller::get
+  methods: GET
+update_todo:
+  path: user/{userId}/todo/{todoId}/update
+  controller: App\Todo\Infrastructure\Controller\UpdateTodoController::update
+  methods: PUT
