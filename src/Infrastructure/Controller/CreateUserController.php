@@ -6,11 +6,13 @@ use App\Application\Request\CreateUserRequest;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-class UserController
+class CreateUserController
 {
     private $createUserUseCase;
 
-    public function __construct(CreateUserUseCase $createUserUseCase)
+    public function __construct(
+    CreateUserUseCase $createUserUseCase
+    )
     {
         $this->createUserUseCase = $createUserUseCase;
     }
@@ -21,8 +23,6 @@ class UserController
             $request->get('userName'), 
             $request->get('email')
         );
-
-
         
         return new JsonResponse($this->createUserUseCase->create($createUserRequest));
     }

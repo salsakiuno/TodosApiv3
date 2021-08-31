@@ -14,14 +14,22 @@ class UserRepository implements UserRepositoryInterface
         $this->entityManager = $entityManager;
     }
 
+    public function delete(User $user): void
+    {
+        $this->entityManager->remove($user);
+        $this->entityManager->flush();
+
+    }
+
     public function save(User $user): void
     {
         $this->entityManager->persist($user);
         $this->entityManager->flush();
     }
-    public function findById(int $userId): ?User
+
+    public function findById(int $id): ?User
     {
-        return $this->entityManager->getRepository(User::class)->findOneBy(['id' => $userId]);
+        return $this->entityManager->getRepository(User::class)->findOneBy(['id' => $id]);
     }
 
     public function findByEmail(string $email): ?User
