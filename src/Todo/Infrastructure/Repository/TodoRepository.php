@@ -4,6 +4,7 @@ namespace App\Todo\Infrastructure\Repository;
 
 use App\Todo\Domain\Entity\Todo;
 use App\Todo\Domain\Repository\TodoRepositoryInterface;
+use Doctrine\DBAL\Abstraction\Result;
 use Doctrine\ORM\EntityManagerInterface;
 
 class TodoRepository implements TodoRepositoryInterface
@@ -28,6 +29,16 @@ class TodoRepository implements TodoRepositoryInterface
 
     }
 
+    public function deleteAllByUserId(int $userId): void
+    {   
+        $todos = $this->findAllByUserId($userId);
+
+        foreach($todos as $todo){
+            $this->entityManager->remove($todo);
+        }
+        $this->entityManager->flush();
+    }
+
     public function findByIdAndUserId(int $userId, $todoId): Todo
     {
         $result = $this->entityManager->createQueryBuilder()
@@ -37,7 +48,7 @@ class TodoRepository implements TodoRepositoryInterface
         ->setParameter('userId', $userId)
         ->setParameter('todoId', $todoId)
         ->getQuery()->getOneOrNullResult();
-        
+
     return $result[0];
     }
 
@@ -48,14 +59,19 @@ class TodoRepository implements TodoRepositoryInterface
 
     public function findAllByUserId(int $id): array
     {
-        $result = $this->entityManager->createQueryBuilder()
+        $results = $this->entityManager->createQueryBuilder()
             ->from(Todo::class, 'todos')
             ->select('todos','todos.title', 'todos.description', 'todos.done')
             ->where('todos.userId = :id')
             ->setParameter('id', $id)
-            ->getQuery()->getArrayResult();
+            ->getQuery()->getResult();
 
-        return $result;
+        $newResult=[];
+        foreach ($results as $result){
+            array_push($newResult, $result[0]);
+        }
+
+        return $newResult;
     }
 
     public function findAllDoneByUserId(int $id): array

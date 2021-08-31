@@ -16,7 +16,6 @@ class UpdateUserUseCase{
     public function update(UpdateUserRequest $request)
     {
         $user = $this->userRepositoryInterface->findById($request->getId());
-        var_dump($user);
 
         $user -> setUserName($request->getUserName())
               -> setEmail($request->getEmail());
