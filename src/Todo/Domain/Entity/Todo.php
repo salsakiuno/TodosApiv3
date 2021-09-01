@@ -2,8 +2,6 @@
 
 namespace App\Todo\Domain\Entity;
 
-use phpDocumentor\Reflection\Types\Boolean;
-
 class Todo
 {
     public $title;
@@ -39,7 +37,7 @@ class Todo
         return $this;
     }
 
-    public function setDone(Boolean $done): self
+    public function setDone(bool $done): self
     {
         $this->done = $done;
 

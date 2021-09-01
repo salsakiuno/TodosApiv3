@@ -50,3 +50,7 @@ delete_todo:
   path: user/{userId}/todo/{todoId}/delete
   controller: App\Todo\Infrastructure\Controller\DeleteTodoController::delete
   methods: DELETE
+update_done_todo:
+  path: user/{userId}/todo/{todoId}/done
+  controller: App\Todo\Infrastructure\Controller\UpdateTodoController::updateDoneState
+  methods: PUT
