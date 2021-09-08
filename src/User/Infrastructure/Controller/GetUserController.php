@@ -24,5 +24,4 @@ class GetUserController
     {
         return new JsonResponse($this->getUserUseCase->getAll());
     }
-    
 }

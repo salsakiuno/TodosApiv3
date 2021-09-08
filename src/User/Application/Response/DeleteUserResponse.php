@@ -4,8 +4,8 @@ namespace App\User\Application\Response;
 
 class DeleteUserResponse implements \JsonSerializable
 {
-    private $userName;
-    private $email;
+    private string $userName;
+    private string $email;
 
     public function __construct(string $userName, string $email)
     {
@@ -13,12 +13,12 @@ class DeleteUserResponse implements \JsonSerializable
         $this->email = $email;
     }
 
-    public function getUserName()
+    public function getUserName(): string
     {
         return $this->userName;
     }
 
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->email;
     }

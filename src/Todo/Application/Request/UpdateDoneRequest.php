@@ -4,9 +4,9 @@ namespace App\Todo\Application\Request;
 
 class UpdateDoneRequest
 {
-    private $userId;
-    private $id;
-    private $done;
+    private int $userId;
+    private int $id;
+    private bool $done;
 
     public function __construct(int $id, int $userId, bool $done){
         $this->id = $id;
@@ -14,15 +14,17 @@ class UpdateDoneRequest
         $this->done = $done;
     }
 
-    public function getDone(){
+    public function getDone(): bool
+    {
         return $this->done;
     }
-    public function getId(){
+    public function getId(): int
+    {
         return $this->id;
     }
-    public function getUserId(){
+    public function getUserId(): int
+    {
         return $this->userId;
     }
 
 }
-

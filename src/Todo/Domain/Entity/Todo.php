@@ -10,7 +10,7 @@ class Todo
     public $userId;
     public $id;
 
-    public function __construct($title, $description, $userId)
+    public function __construct(string $title, string $description, int $userId)
     {
         $this->title = $title;
         $this->description = $description;
@@ -18,7 +18,7 @@ class Todo
         $this->done = false;
     }
 
-    public function getTitle(): self
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -40,8 +40,6 @@ class Todo
     public function setDone(bool $done): self
     {
         $this->done = $done;
-
         return $this;
     }
-
 }

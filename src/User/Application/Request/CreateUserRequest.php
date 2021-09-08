@@ -4,8 +4,8 @@ namespace App\User\Application\Request;
 
 class CreateUserRequest
 {
-    private $userName;
-    private $email;
+    private string $userName;
+    private string $email;
 
     public function __construct(string $userName, string $email){
         $this->userName = $userName;
@@ -13,12 +13,13 @@ class CreateUserRequest
         
     }
 
-    public function getUserName(){
+    public function getUserName(): string
+    {
         return $this->userName;
     }
-    public function getEmail(){
+    public function getEmail(): string
+    {
         return $this->email;
     }
 
 }
-

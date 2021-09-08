@@ -4,11 +4,11 @@ namespace App\User\Domain\Entity;
 
 class User
 {
-    public $userName;
-    public $email;
-    public $id;
+    public string $userName;
+    public string $email;
+    public string $id;
 
-    public function __construct($userName, $email)
+    public function __construct(string $userName, string $email)
     {
         $this->userName = $userName;
         $this->email = $email;

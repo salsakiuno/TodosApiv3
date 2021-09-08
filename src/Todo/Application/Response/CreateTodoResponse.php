@@ -11,7 +11,7 @@ class CreateTodoResponse implements \JsonSerializable
         $this->todoId = $todoId;
     }
 
-    public function getTodoId()
+    public function getTodoId(): int
     {
         return $this->todoId;
     }

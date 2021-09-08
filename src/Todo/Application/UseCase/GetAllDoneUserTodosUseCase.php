@@ -15,8 +15,8 @@ class GetAllDoneUserTodosUseCase
     public function getAll($id)
     {
         $todos =  $this->todoRepositoryInterface->findAllDoneByUserId($id);
+
         return new GetTodosResponse($todos);
     }
 
 }
-

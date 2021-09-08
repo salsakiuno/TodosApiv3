@@ -3,7 +3,6 @@
 namespace App\User\Infrastructure\Repository;
 
 use App\User\Domain\Entity\User;
-use App\Todo\Infrastructure\Repository\TodoRepository;
 use App\User\Domain\Repository\UserRepositoryInterface;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -17,8 +16,6 @@ class UserRepository implements UserRepositoryInterface
 
     public function delete(User $user): void
     {
-        $deleteTodos = new TodoRepository($this->entityManager);
-        $deleteTodos->deleteAllByUserId($user->id);
         $this->entityManager->remove($user);
         $this->entityManager->flush();
     }

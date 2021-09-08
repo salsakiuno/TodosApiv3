@@ -26,6 +26,4 @@ class UpdateUserController
 
         return new JsonResponse($this->updateUserUseCase->update($updateUserRequest));
     }
-
-
 }

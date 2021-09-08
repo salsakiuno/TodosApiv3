@@ -26,6 +26,4 @@ class CreateUserUseCase
         
         return new CreateUserResponse($userId->id, $request->getUserName());
     }
-
 }
-

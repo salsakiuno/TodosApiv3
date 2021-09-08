@@ -4,8 +4,8 @@ namespace App\Todo\Application\Request;
 
 class DeleteTodoRequest
 {
-    private $userId;
-    private $id;
+    private int $userId;
+    private int $id;
 
     public function __construct(int $id, int $userId){
         $this->id = $id;
@@ -20,4 +20,3 @@ class DeleteTodoRequest
     }
 
 }
-

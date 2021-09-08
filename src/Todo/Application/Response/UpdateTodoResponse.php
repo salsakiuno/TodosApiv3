@@ -4,9 +4,9 @@ namespace App\Todo\Application\Response;
 
 class UpdateTodoResponse implements \JsonSerializable
 {
-    private $id;
-    private $title;
-    private $description;
+    private int $id;
+    private string $title;
+    private string $description;
 
     public function __construct(int $id, string $title, string $description)
     {
@@ -15,17 +15,17 @@ class UpdateTodoResponse implements \JsonSerializable
         $this->description = $description;
     }
 
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
 
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }

@@ -6,12 +6,12 @@ class UpdateDoneResponse implements \JsonSerializable
 {
     private $done;
 
-    public function __construct($done)
+    public function __construct(bool $done)
     {
         $this->done = $done;
     }
 
-    public function getDone()
+    public function getDone(): bool
     {
         return $this->done;
     }

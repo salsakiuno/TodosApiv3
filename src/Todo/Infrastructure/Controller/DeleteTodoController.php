@@ -25,6 +25,4 @@ class DeleteTodoController
 
         return new JsonResponse($this->deleteTodoUseCase->delete($deleteTodoRequest));
     }
-
-
 }

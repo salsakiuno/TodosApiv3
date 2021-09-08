@@ -11,7 +11,7 @@ class GetTodosResponse implements \JsonSerializable
         $this->todos = $todos;
     }
 
-    public function getTodos()
+    public function getTodos():array
     {
         return $this->todos;
     }

@@ -4,10 +4,10 @@ namespace App\Todo\Application\Request;
 
 class UpdateTodoRequest
 {
-    private $userId;
-    private $id;
-    private $title;
-    private $description;
+    private int $userId;
+    private int $id;
+    private string $title;
+    private string $description;
 
     public function __construct(int $id, int $userId, string $title, string $description){
         $this->id = $id;
@@ -16,18 +16,21 @@ class UpdateTodoRequest
         $this->description = $description;
     }
 
-    public function getTitle(){
+    public function getTitle(): string
+    {
         return $this->title;
     }
-    public function getDescription(){
+    public function getDescription(): string
+    {
         return $this->description;
     }
-    public function getId(){
+    public function getId(): int
+    {
         return $this->id;
     }
-    public function getUserId(){
+    public function getUserId(): int
+    {
         return $this->userId;
     }
 
 }
-

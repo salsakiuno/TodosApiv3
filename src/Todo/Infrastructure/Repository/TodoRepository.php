@@ -31,12 +31,11 @@ class TodoRepository implements TodoRepositoryInterface
 
     public function deleteAllByUserId(int $userId): void
     {   
-        $todos = $this->findAllByUserId($userId);
-
-        foreach($todos as $todo){
-            $this->entityManager->remove($todo);
-        }
-        $this->entityManager->flush();
+        $this->entityManager->createQueryBuilder()
+        ->delete(Todo::class, 'todos')
+        ->where('todos.userId = :userId')
+        ->setParameter('userId', $userId)
+        ->getQuery()->getResult();
     }
 
     public function findByIdAndUserId(int $userId, $todoId): Todo
@@ -47,9 +46,9 @@ class TodoRepository implements TodoRepositoryInterface
         ->where('todos.userId = :userId AND todos.id = :todoId')
         ->setParameter('userId', $userId)
         ->setParameter('todoId', $todoId)
-        ->getQuery()->getOneOrNullResult();
-
-    return $result[0];
+        ->getQuery()->getResult();
+        
+        return $result[0][0];
     }
 
     public function findAll(): ?array
@@ -99,5 +98,4 @@ class TodoRepository implements TodoRepositoryInterface
 
         return $result;
     }
-
 }

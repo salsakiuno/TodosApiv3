@@ -28,6 +28,4 @@ class UpdateUserUseCase{
             $userUpdated->userName,
             $userUpdated->email);
     }
-
 }
-

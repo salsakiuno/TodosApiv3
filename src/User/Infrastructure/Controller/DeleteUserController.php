@@ -20,6 +20,5 @@ class DeleteUserController
         $userId = new DeleteUserRequest($id);
 
         return new JsonResponse($this->deleteUserUseCase->delete($userId));
-
     }
 }

@@ -4,9 +4,9 @@ namespace App\User\Application\Response;
 
 class GetUserResponse implements \JsonSerializable
 {
-    private $userId;
-    private $userName;
-    private $email;
+    private int $userId;
+    private string $userName;
+    private string $email;
 
     public function __construct(int $userId, string $userName, string $email)
     {
@@ -15,17 +15,17 @@ class GetUserResponse implements \JsonSerializable
         $this->email = $email;
     }
 
-    public function getUserId()
+    public function getUserId(): int
     {
         return $this->userId;
     }
 
-    public function getUserName()
+    public function getUserName(): string
     {
         return $this->userName;
     }
 
-    public function getUserEmail()
+    public function getUserEmail(): string
     {
         return $this->email;
     }

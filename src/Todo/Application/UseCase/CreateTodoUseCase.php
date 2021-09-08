@@ -24,9 +24,7 @@ class CreateTodoUseCase
 
         $this->todoRepositoryInterface->save($todo);
 
-        //var_dump($this->todoRepositoryInterface->findAllByUserId($todo->userId));
         return new CreateTodoResponse($todo->id);
     }
 
 }
-

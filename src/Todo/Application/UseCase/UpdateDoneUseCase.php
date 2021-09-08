@@ -3,24 +3,27 @@
 namespace App\Todo\Application\UseCase;
 
 use App\Todo\Domain\Repository\TodoRepositoryInterface;
-use App\Todo\Application\Request\DeleteTodoRequest;
-use App\Todo\Application\Response\DeleteTodoResponse;
+use App\Todo\Application\Request\UpdateDoneRequest;
+use App\Todo\Application\Response\UpdateDoneResponse;
 
-class DeleteTodoUseCase{
+class UpdateDoneUseCase{
+
     public function __construct(TodoRepositoryInterface $todoRepositoryInterface)
     {
         $this->todoRepositoryInterface = $todoRepositoryInterface;
     }
 
-    public function delete(DeleteTodoRequest $request)
+    public function update(UpdateDoneRequest $request)
     {
-
         $todo = $this->todoRepositoryInterface->findByIdAndUserId(
             $request->getId(),
             $request->getUserId()   
         );
-        $this->todoRepositoryInterface->delete($todo);
-        
-        return new DeleteTodoResponse($todo->title);
+
+        $todo->setDone($request->getDone());
+
+        $this->todoRepositoryInterface->save($todo);
+
+        return new UpdateDoneResponse($todo->done);
     }
 }
