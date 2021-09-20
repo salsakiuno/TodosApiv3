@@ -15,10 +15,6 @@ logs:
 	@docker-compose -f ${DOCKER_COMPOSE_FILE} logs ${PHP}
 
 serverup:
-	echo yes | docker exec ${PHP} php bin/console doctrine:migrations:migrate
-	docker exec ${PHP} symfony server:start
-
-restart:
 	docker exec ${PHP} php bin/console doctrine:database:drop --if-exists --force
 	docker exec ${PHP} php bin/console doctrine:database:create
 	echo yes | docker exec ${PHP} php bin/console doctrine:migrations:migrate
