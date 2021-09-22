@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+  nginx:
+    container_name: nginx
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx
+    volumes:
+      - ./:/var/www/todov3/
+    ports: 
+      - 8001:80
+    networks: 
+      - symfony
+  mysql:
+    container_name: mysql
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: todo
+      MYSQL_USER: symfony
+      MYSQL_PASSWORD: symfony
+    ports:
+      - '4306:3306'
+    volumes:
+      - ./mysql:/var/lib/mysql
+      - ./mysql:/var/log/mysql
+    networks: 
+      - symfony
+  php:
+    container_name: php
+    build:
+      context: .
+      dockerfile: Dockerfile-php
+    volumes:
+      - .:/var/www/todov3
+    ports: 
+      - 8000:80
+    depends_on:
+      - mysql
+    networks: 
+      - symfony
+    
+
+networks: 
+  symfony:
