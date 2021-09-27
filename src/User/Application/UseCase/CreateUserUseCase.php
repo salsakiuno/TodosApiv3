@@ -6,23 +6,29 @@ use App\User\Domain\Repository\UserRepositoryInterface;
 use App\User\Domain\Entity\User;
 use App\User\Application\Request\CreateUserRequest;
 use App\User\Application\Response\CreateUserResponse;
-use App\User\Domain\Exception\ValidationException;
+use App\User\Domain\Exception\EmailValidationException;
+use App\User\Domain\Exception\UserNameValidationException;
 use App\User\Domain\Service\EmailValidation;
+use App\User\Domain\Service\UserNameValidation;
 
 
 class CreateUserUseCase
 {    
-    public function __construct(UserRepositoryInterface $userRepositoryInterface, EmailValidation $emailValidation)
+    public function __construct(
+        UserRepositoryInterface $userRepositoryInterface, 
+        EmailValidation $emailValidation,
+        UserNameValidation $userNameValidation
+        )
     {
         $this->userRepositoryInterface = $userRepositoryInterface;
         $this->emailValidation = $emailValidation;
+        $this->userNameValidation = $userNameValidation;
     }
 
     public function create(CreateUserRequest $request)
     {
-         try {
             $this->emailValidation->validate($request->getEmail());
-            //$emailValidation->validate($request);
+            $this->userNameValidation->validate($request->getUserName());
             $user = new User(
                 $request->getUserName(),
                 $request->getEmail()
@@ -33,8 +39,5 @@ class CreateUserUseCase
             $return = new CreateUserResponse($userId->id, $request->getUserName());
 
             return $return;
-        } catch(ValidationException $error) {
-            throw $error;
-         }
     }
 }

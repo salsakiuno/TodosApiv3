@@ -2,13 +2,11 @@
 
 namespace App\User\Domain\Service;
 
-use App\User\Domain\Exception\ValidationException;
+use App\User\Domain\Exception\EmailValidationException;
 
 class EmailValidation
 {
     private const EMAIL_LENGTH = 35;
-    private const EMAIL_CHARACTER = "/[@]/";
-
 
     function validate($email): void
     {
@@ -19,14 +17,14 @@ class EmailValidation
     function validateLength($email): void
     {
         if(strlen($email) >= self::EMAIL_LENGTH){
-            throw new ValidationException();
+            throw new EmailValidationException();
         }
     }
 
     function validateEmailCharacters($email): void
     {
-        if(!(preg_match(self::EMAIL_CHARACTER, $email))){
-            throw new ValidationException();
+        if(!(filter_var($email, FILTER_VALIDATE_EMAIL))){
+            throw new EmailValidationException();
         }
     }
 }

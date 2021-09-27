@@ -2,9 +2,9 @@
 
 namespace App\User\Domain\Exception;
 
-class ValidationException extends \Exception 
+class EmailAlreadyExistException extends \Exception 
 {
-    protected const MESSAGE = 'INVALID_EMAIL';
+    protected const MESSAGE = 'EMAIL ALREADY IN USE';
     
     public function getErrors()
     {
