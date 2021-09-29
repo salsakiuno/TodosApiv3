@@ -3,6 +3,7 @@ namespace App\User\Infrastructure\Controller;
 
 use App\User\Application\UseCase\CreateUserUseCase;
 use App\User\Application\Request\CreateUserRequest;
+use App\User\Domain\Exception\EmailAlreadyExistException;
 use App\User\Domain\Exception\EmailValidationException;
 use App\User\Domain\Exception\UserNameValidationException;
 use Symfony\Component\HttpFoundation\Request;
@@ -36,7 +37,11 @@ class CreateUserController
                 $validationException->getErrors(),
                 Response::HTTP_BAD_REQUEST
             );
+        } catch (EmailAlreadyExistException $emailAlreadyExist) {
+            return new JsonResponse(
+                $emailAlreadyExist->getErrors(),
+                Response::HTTP_BAD_REQUEST
+            );
         }
-
     }
 }
