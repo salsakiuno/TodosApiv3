@@ -19,35 +19,35 @@ delete_user:
   controller: App\User\Infrastructure\Controller\DeleteUserController::delete
   methods: DELETE
 todo_creation:
-  path: user/{id}/todo
+  path: /user/{id}/todo
   controller: App\Todo\Infrastructure\Controller\CreateTodoController::create
   methods: POST
 get_user_todos:
-  path: user/{id}/todos
+  path: /user/{id}/todos
   controller: App\Todo\Infrastructure\Controller\GetAllUserTodosController::getAll
   methods: GET
 get_done_user_todos:
-  path: user/{id}/todos/done
+  path: /user/{id}/todos/done
   controller: App\Todo\Infrastructure\Controller\GetAllDoneUserTodosController::getAll
   methods: GET
 get_not_done_user_todos:
-  path: user/{id}/todos/notdone
+  path: /user/{id}/todos/notdone
   controller: App\Todo\Infrastructure\Controller\GetAllNotDoneUserTodosController::getAll
   methods: GET
 get_todo:
-  path: user/{userId}/todo/{todoId}
+  path: /user/{userId}/todo/{todoId}
   controller: App\Todo\Infrastructure\Controller\GetTodoCrontroller::get
   methods: GET
 update_todo:
-  path: user/{userId}/todo/{todoId}
+  path: /user/{userId}/todo/{todoId}
   controller: App\Todo\Infrastructure\Controller\UpdateTodoController::update
   methods: PUT
 delete_todo:
-  path: user/{userId}/todo/{todoId}
+  path: /user/{userId}/todo/{todoId}
   controller: App\Todo\Infrastructure\Controller\DeleteTodoController::delete
   methods: DELETE
 update_done_todo:
-  path: user/{userId}/todo/{todoId}/done
+  path: /user/{userId}/todo/{todoId}/done
   controller: App\Todo\Infrastructure\Controller\UpdateDoneController::update
   methods: PUT
   

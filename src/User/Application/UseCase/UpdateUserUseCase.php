@@ -7,20 +7,17 @@ use App\User\Application\Request\UpdateUserRequest;
 use App\User\Application\Response\UpdateUserResponse;
 use App\User\Domain\Entity\User;
 use App\User\Domain\Exception\EmailAlreadyExistException;
-use App\User\Domain\Exception\UserAlreadyExistException;
 use App\User\Domain\Service\UserNameValidation;
-use App\User\Domain\Service\EmailValidation;
+use App\User\Infrastructure\ValueObjects\EmailValueObject;
 
 class UpdateUserUseCase{
 
     public function __construct(
         UserRepositoryInterface $userRepositoryInterface,
-        EmailValidation $emailValidation,
         UserNameValidation $userNameValidation
         )
     {
         $this->userRepositoryInterface = $userRepositoryInterface;
-        $this->emailValidation = $emailValidation;
         $this->userNameValidation = $userNameValidation;
     }
 
@@ -28,13 +25,12 @@ class UpdateUserUseCase{
     {
         
         $userSearchByEmail = $this->userRepositoryInterface->findByEmail($request->getEmail());
-        $userSearchByUserName = $this->userRepositoryInterface->findByUserName($request->getUserName());
 
         if($userSearchByEmail instanceof User) {
            throw new EmailAlreadyExistException();
         }
 
-        $this->emailValidation->validate($request->getEmail());
+        EmailValueObject::validate($request->getEmail());
         $this->userNameValidation->validate($request->getUserName());
         $user = $this->userRepositoryInterface->findById($request->getId());
 
