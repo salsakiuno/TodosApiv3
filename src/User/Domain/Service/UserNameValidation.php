@@ -15,7 +15,7 @@ class UserNameValidation
 
     function validateLength($userName): void
     {
-        if(strlen($userName) >= self::USERNAME_LENGTH){
+        if(strlen($userName) >= self::USERNAME_LENGTH || empty($userName)){
             throw new UserNameValidationException();
         }
     }
